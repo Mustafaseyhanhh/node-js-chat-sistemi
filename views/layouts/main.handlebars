@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from egemem.com/theme/finapp/view/component-listview.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Feb 2020 06:38:15 GMT -->
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Finapp - Mobile Template</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Finapp HTML Mobile Template">
+    <meta name="keywords" content="bootstrap, mobile template, cordova, phonegap, mobile, html, responsive" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+
+    <!-- loader -->
+    <div id="loader">
+        <img src="assets/img/logo-icon.png" alt="icon" class="loading-icon">
+    </div>
+    <!-- * loader -->
+
+    <!-- App Header -->
+    <div class="appHeader">
+        {{#if (ifEsitMi pagename 'Random')}}
+        <div class="left">
+            <a href="/sohbetler" class="headerButton goBack">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+            </a>
+        </div>
+        {{else}}
+        <div class="left">
+            <a href="javascript:;" class="headerButton goBack">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+            </a>
+        </div>
+        {{/if}}
+        <div class="pageTitle">{{pagename}}</div>
+        <div class="right">
+            <div class="chip chip-media">
+                <i class="chip-icon bg-warning">
+                    <ion-icon name="add-circle-outline" role="img" class="md hydrated" aria-label="alarm outline">
+                    </ion-icon>
+                </i>
+                <span class="chip-label">52002</span>
+            </div>
+        </div>
+    </div>
+    <!-- * App Header -->
+
+    {{{body}}}
+
+    <!-- App Bottom Menu -->
+    <div class="appBottomMenu">
+        <a href="/paketler" class="item {{#if paketler}} active {{/if}}">
+            <div class="col">
+                <ion-icon name="gift-outline" role="img" class="md hydrated" aria-label="gift-outline"></ion-icon>
+                <strong>Paketler</strong>
+            </div>
+        </a>
+        <a href="/random-hak-control" class="item {{#if random}} active {{/if}}">
+            <div class="col">
+                <ion-icon name="transgender-outline" role="img" class="md hydrated" aria-label="transgender-outline">
+                </ion-icon>
+                <strong>Random</strong>
+            </div>
+        </a>
+        <a href="/sohbetler" class="item">
+            <div class="col">
+                <div class="action-button large">
+                    <i class="icon ion-md-chatboxes" style="font-size: 40px;"></i>
+                </div>
+            </div>
+        </a>
+        <a href="kesfet" class="item {{#if kesfet}} active {{/if}}">
+            <div class="col">
+                <ion-icon name="rocket-outline" role="img" class="md hydrated" aria-label="rocket-outline"></ion-icon>
+                <strong>Keşfet</strong>
+            </div>
+        </a>
+        <a href="/profil" class="item {{#if profil}} active {{/if}}">
+            <div class="col">
+                <ion-icon name="people-outline" role="img" class="md hydrated" aria-label="people outline"></ion-icon>
+                <strong>Profil</strong>
+            </div>
+        </a>
+    </div>
+    <!-- * App Bottom Menu -->
+
+    <!-- DialogIconedDanger -->
+    <div class="modal fade dialogbox" id="DialogIconedDanger" data-backdrop="static" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-icon text-danger">
+                    <ion-icon name="close-circle"></ion-icon>
+                </div>
+                <div class="modal-header">
+                    <h5 class="modal-title">{{sessionFlash.title}}</h5>
+                </div>
+                <div class="modal-body">
+                    {{sessionFlash.message}}
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-inline">
+                        <a href="#" class="btn" data-dismiss="modal">Kapat</a>
+                         <a href="{{sessionFlash.link}}" class="btn">{{sessionFlash.btnText}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- * DialogIconedDanger -->
+
+    
+    <!-- ///////////// Js Files ////////////////////  -->
+    <!-- Jquery -->
+    
+    <!-- Bootstrap-->
+    <script src="assets/js/lib/popper.min.js"></script>
+    <script src="assets/js/lib/bootstrap.min.js"></script>
+    <!-- Ionicons -->
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <!-- Owl Carousel -->
+    <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <!-- Base Js File -->
+    <script src="assets/js/base.js"></script>
+    {{#if sessionFlash.message}}
+    <script type="text/javascript">
+        $(window).on('load',function(){
+            $('#DialogIconedDanger').modal('show');
+        });
+    </script>
+    {{/if}}
+    <script>
+        window.onload = function () {
+                console.log("girdi");
+                var value1 = "{{userId}}";
+                var value2 = false;
+                console.log(value1,"-----",value2)
+                var socket = io({ query: "id1="+value1+"&id2="+value2});
+        };
+    </script>
+
+
+</body>
+
+
+<!-- Mirrored from egemem.com/theme/finapp/view/component-listview.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Feb 2020 06:38:15 GMT -->
+
+</html>

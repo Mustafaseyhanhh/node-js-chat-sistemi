@@ -1,0 +1,49 @@
+<!-- App Capsule -->
+<div id="appCapsule">
+    <ul class="listview image-listview">
+
+        <li>
+            <a href="#" class="item">
+                <div class="icon-box bg-warning">
+                    <ion-icon name="chatbubble-outline" role="img" class="md hydrated" aria-label="chatbubble outline">
+                    </ion-icon>
+                </div>
+                <div class="in">
+                    <div>
+                        <div class="mb-05"><strong>Sistem Mesajlaşma</strong></div>
+                        <div class="text-small mb-05">You have new messages from John</div>
+                        <div class="text-xsmall">Tüm Sorularınızı buradan iletebilirsiniz.</div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        {{#each sohbetUser}}
+        <li>
+            <a href="/sohbetler/{{destinationUser._id}}" class="item">
+                <img src="assets/img/sample/avatar/avatar2.jpg" alt="image" class="image">
+                <div class="in">
+                    <div>
+                        <header>
+                            {{#if (ifEsitMi status 'online')}}
+                            <div class="text-success" style="float:left;">
+                                {{else}}
+                                <div class="text-danger" style="float:left;">
+                                    {{/if}}
+                                    {{status}}
+                                </div>
+                                &nbsp;Name
+                        </header>
+                        {{destinationUser.username}}
+                        <footer>{{sonmesaj}}</footer>
+                    </div>
+                    {{#if (ifMesajSayisi okundu 0)}}
+                    <span class="badge badge-danger">{{okundu}}</span>
+                    {{/if}}
+                </div>
+            </a>
+        </li>
+        {{/each}}
+
+    </ul>
+</div>
+<!-- * App Capsule -->
