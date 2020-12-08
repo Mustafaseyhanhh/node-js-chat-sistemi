@@ -67,6 +67,7 @@ const main = require('./routes/main')
 const uye_ol = require('./routes/uye_ol')
 const uye_girisi = require('./routes/uye_girisi')
 const sohbetler = require('./routes/sohbetler')
+const sohbet = require('./routes/sohbet')
 const paketler = require('./routes/paketler')
 const random = require('./routes/random')
 const kesfet = require('./routes/kesfet')
@@ -79,6 +80,7 @@ app.use('/', paketler)
 app.use('/', random)
 app.use('/', kesfet)
 app.use('/', profil)
+app.use('/', sohbet)
 
 io.use(function(socket, next) {
     var handshakeData = socket.request;

@@ -4,7 +4,12 @@ const User = require('../model/User')
 const { use } = require('./main')
 
 router.get('/',function(req,res){
-    res.statusCode = 200
+
+    //test blok için userid tanımlaması
+    req.session.userId = "5fcc0e322514db2d148b7a42"
+    req.session.login = true
+    //test blok için userid tanımlaması
+    
     //console.log(req.session)
     res.setHeader("Content-Type", "text/html");
     if (req.session.login){
@@ -15,7 +20,6 @@ router.get('/',function(req,res){
 })
 
 router.post('/uye-giris-kontrol',function(req,res){
-    res.statusCode = 200
     const {username, password} = req.body
     User.findOne({username, password},(error, user) => {
         if (user){
