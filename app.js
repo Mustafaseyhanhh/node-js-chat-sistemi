@@ -63,6 +63,13 @@ app.use((req, res, next)=> {
     next()
 });
 
+//Hata bildirimleri
+app.use((req, res, next)=> {
+    res.locals.hata = req.session.hata
+    delete req.session.hata
+    next()
+});
+
 const main = require('./routes/main')
 const uye_ol = require('./routes/uye_ol')
 const uye_girisi = require('./routes/uye_girisi')
@@ -79,7 +86,7 @@ app.use('/', sohbetler)
 app.use('/', paketler)
 app.use('/', random)
 app.use('/', kesfet)
-app.use('/', profil)
+app.use('/profil', profil)
 app.use('/', sohbet)
 
 io.use(function(socket, next) {
