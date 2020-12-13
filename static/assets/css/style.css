@@ -8265,6 +8265,7 @@ b {
   .imaged.w86 {
     width: 86px !important; }
   .imaged.w100 {
+    height: 100px;
     width: 100px !important; }
   .imaged.w120 {
     width: 120px !important; }
@@ -10492,7 +10493,8 @@ a.text-dark {
   background: #ffffff;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.09);
   border-radius: 10px;
-  padding: 20px 24px;
+  padding: 20px 5px;
+  padding-top: 5px;
   text-align: center; }
   .bill-box .img-wrapper {
     text-align: center;
@@ -10518,9 +10520,8 @@ a.text-dark {
     line-height: 1em;
     margin-bottom: 12px; }
   .bill-box p {
-    font-size: 11px;
     line-height: 1.4em;
-    height: 36px;
+    height: 20px;
     margin: 0 0 10px 0; }
 
 .goals .item {

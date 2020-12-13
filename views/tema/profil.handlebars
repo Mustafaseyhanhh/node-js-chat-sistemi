@@ -3,11 +3,29 @@
         <div class="section mt-3 text-center">
             <div class="avatar-section">
                 <a href="#">
-                    <img src="assets/img/sample/avatar/avatar1.jpg" alt="avatar" class="imaged w100 rounded">
+                    <img src="/media/profil/5fcc0e322514db2d148b7a42" alt="avatar" width="100px" height="100px" class="imaged w100 rounded">
+                    <span class="button">
+                        <ion-icon name="camera-outline"></ion-icon>
+                    </span>
                 </a>
             </div>
         </div>
        
+       <div class="listview-title mt-1">Durum</div>
+       <ul class="listview image-listview text">
+            <li>
+                <div class="item">
+                    <div class="in">
+                        <div>
+                            <div class="text-muted">
+                                Bu yollar gele gide bitecek Bu yollar gele gide bitecek  Bu yollar gele gide bitecek  Bu yollar gele gide bitecek  Bu yollar gele gide bitecek 
+                            </div>
+                        </div>
+                        <a data-toggle="modal" data-target="#durumdegistir"><span class="text-primary">Değiştir</span></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
         <div class="listview-title mt-1">Profil Ayarları</div>
         <ul class="listview image-listview text">
             <li>
@@ -19,7 +37,7 @@
                                 Chat sırasında kullandığınız ismi değiştirin 
                             </div>
                         </div>
-                        <span class="text-primary">Düzenle</span>
+                        <a data-toggle="modal" data-target="#chatnamedegistir"><span class="text-primary">Değiştir</span></a>
                     </div>
                 </div>
             </li>
@@ -29,7 +47,7 @@
                         <div>
                             Şifre
                         </div>
-                        <a data-toggle="modal" data-target="#sifredegistir"><span class="text-primary">Düzenle</span></a>
+                        <a data-toggle="modal" data-target="#sifredegistir"><span class="text-primary">Değiştir</span></a>
                     </div>
                 </div>
             </li>
@@ -39,13 +57,29 @@
                         <div>
                             Profil resmi
                         </div>
-                        <a data-toggle="modal" data-target="#sifredegistir"><span class="text-primary">Düzenle</span></a>
+                        <a data-toggle="modal" data-target="#profilresmidegistir"><span class="text-primary">Değiştir</span></a>
                     </div>
                 </div>
             </li>
         </ul>
-    </div>
-
+        <div class="listview-title mt-1">Üyelik Türü</div>
+        <ul class="listview image-listview text">
+            <li>
+                <div class="item">
+                    <div class="in">
+                        <div>
+                            Premium Üyelik
+                            <div class="text-muted">
+                                Ayrıcalıklarınızı siz belirleyin 
+                            </div>
+                        </div>
+                        <a href="/paketler"><span class="text-primary">Değiştir</span></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        
+    
 
 
     <div class="modal fade dialogbox" id="sifredegistir" data-backdrop="static" tabindex="-1" role="dialog">
@@ -93,11 +127,61 @@
                     <div class="modal-header">
                         <h5 class="modal-title">Chat Name Değiştir</h5>
                     </div>
-                    <form action="/profil/sifre-degistir" method="POST">
+                    <form action="/profil/chat-name-degistir" method="POST">
                         <div class="modal-body text-left mb-2">
                             <div class="form-group basic">
                                 <div class="input-wrapper">
-                                    <input type="password" class="form-control" name="esifre" placeholder="Eski Şifre" autocomplete="off" required>
+                                    <input type="text" class="form-control" name="cname" placeholder="Chat Name" autocomplete="off" required maxlength="100">
+                                    <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="btn-inline">
+                                <button type="button" class="btn btn-text-secondary" data-dismiss="modal">VAZGEÇ</button>
+                                <button type="submit" class="btn btn-text-primary">KAYDET</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade dialogbox" id="profilresmidegistir" data-backdrop="static" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Profil </h5>
+                    </div>
+                    <form action="/profil/profil-resmi-degistir" method="POST" enctype="multipart/form-data">
+                        <div class="modal-body text-left mb-2">
+                            <div class="form-group basic">
+                                <div class="input-wrapper">
+                                    <input type="file" class="form-control" name="resim" placeholder="Resim Seç" autocomplete="off" required accept="image/png, image/jpeg">
+                                    <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="btn-inline">
+                                <button type="button" class="btn btn-text-secondary" data-dismiss="modal">VAZGEÇ</button>
+                                <button type="submit" class="btn btn-text-primary">KAYDET</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade dialogbox" id="durumdegistir" data-backdrop="static" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Durum </h5>
+                    </div>
+                    <form action="/profil/durum-degistir" method="POST">
+                        <div class="modal-body text-left mb-2">
+                            <div class="form-group basic">
+                                <div class="input-wrapper">
+                                    <input type="text" class="form-control" name="durum" placeholder="Durumunuz" autocomplete="off" required maxlength="200">
                                     <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
                                 </div>
                             </div>

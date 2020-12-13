@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const express = require ('express')
 const expressSession = require('express-session')
+const expressFileUpload = require('express-fileupload')
 
 //Modelleri Ekliyoruz.
 const User = require('./model/User')
@@ -39,7 +40,10 @@ app.engine('handlebars', exphbs({
     }}))
 
 app.set('view engine', 'handlebars')
-app.use(express.static(__dirname + '/static'))
+app.use('/media',express.static(__dirname + '/media'))
+app.use(express.static(__dirname + '/static/'))
+
+app.use(expressFileUpload())
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
@@ -135,8 +139,12 @@ io.on('connection', socket => {
     socket.on("disconnect", () =>{
         console.log("disconnect","socketId:",socket.id)
         SocketUser.findOne({socketId:socket.id},(error,socketUser)=>{
-            socketUser.status='offline'
-            socketUser.save()
+            if (socketUser){
+                socketUser.status='offline'
+                socketUser.save()
+            }else{
+                console.log("socketUser bulunamadı. ", socket.id)
+            }
         })
     })
 })
