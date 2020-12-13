@@ -8276,6 +8276,7 @@ b {
   .imaged.w180 {
     width: 180px !important; }
   .imaged.w200 {
+    height: 200px;
     width: 200px !important; }
   .imaged.img-fluid {
     width: 100%; }

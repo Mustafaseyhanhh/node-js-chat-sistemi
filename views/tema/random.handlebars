@@ -2,14 +2,29 @@
     <div class="section mt-2">
         <div class="card text-center">
             <div class="card-header">
-                {{randomUserUserName}}
+                {{randomUser.username}}
             </div>
         </div>
     </div>
-    <div class="section mt-2">
-        <img src="assets/img/sample/photo/1.jpg" alt="image" class="imaged img-fluid">
+    <div class="mt-2 img-wrapper">
+        
+        
+        
+        <div class="section mt-2">
+            
+            <div class="bill-box" style="padding: 5px 5px; background: #ffffff00; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0);">
+                <div class="img-wrapper" style="margin:0px;"><div class="avatar-section">
+                    {{#if randomUser.profilImage}}
+                    <img src="/media/profil/{{randomUser._id}}" alt="image" class="imaged w200 rounded">
+                    {{else}}
+                    <img src="/media/profil/default.jpg" alt="image" class="imaged w200 rounded">
+                    {{/if}}
+                </div>
+            </div></div>
+        </div>
+        
     </div>
-    <div class="section mt-2">
+    <div class="section mt-1">
         <div class="card text-center">
             <div class="card-body" style="margin:0px;padding:0px;">
                 <div class="modal-footer" style="display: block;">
@@ -19,7 +34,7 @@
                             </ion-icon>
                             Geç
                         </a>
-                        <a href="/random-sohbet-basla/{{randomUserUserId}}" class="btn btn-text-primary">
+                        <a href="/random-sohbet-basla/{{randomUser._id}}" class="btn btn-text-primary">
                             <ion-icon name="chatbox-ellipses-outline" role="img" class="md hydrated" aria-label="chatbox ellipses outline">
                             </ion-icon>
                             Mesaj At
@@ -32,17 +47,18 @@
     <div class="section mt-2 mb-5">
         <div class="card text-center">
             <div class="card-body">
-                <h5 class="card-title">Hemen mesaj at</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            </div>
-            <div class="card-footer text-muted">
                 <div class="chip chip-media">
                     <i class="chip-icon bg-warning">
                         <ion-icon name="add-circle-outline" role="img" class="md hydrated" aria-label="alarm outline">
                         </ion-icon>
                     </i>
-                    <span class="chip-label">Premium Üye</span>
+                    <span class="chip-label">{{randomUser.premium}}</span>
                 </div>
+                </div>
+            <div class="card-footer text-muted">
+                <h5 class="card-title">Hemen mesaj at</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+           
             </div>
         </div>
     </div>

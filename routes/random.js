@@ -16,19 +16,25 @@ router.get('/random',function(req,res){
                     var random = Math.floor(Math.random() * count)
                     User.findOne().skip(random).exec(
                         function (err, newRandomUser) {
-                            user.sonRandomId=newRandomUser._id
-                            user.save()
-                            _id=user.sonRandomId
-                            User.findOne({_id},(error, randomUser) => {
-                                res.render('tema/random', {
-                                    layout: 'main',
-                                    pagename: 'Random',
-                                    random: true,
-                                    randomUserUserName: randomUser.username,
-                                    randomUserUserId: randomUser._id,
-                                    userId: req.session.userId
+                            console.log("--",user._id)
+                            console.log("--",newRandomUser._id)
+                            if (String(user._id) == String(newRandomUser._id)){
+                                console.log('Kendisi denk geldi')
+                                res.redirect('/random')
+                            }else{
+                                user.sonRandomId=newRandomUser._id
+                                user.save()
+                                _id=user.sonRandomId
+                                User.findOne({_id},(error, randomUser) => {
+                                    res.render('tema/random', {
+                                        layout: 'main',
+                                        pagename: 'Random',
+                                        random: true,
+                                        userId : user._id,
+                                        randomUser : randomUser
+                                    })
                                 })
-                            })
+                            }
                     })
                 })
             }

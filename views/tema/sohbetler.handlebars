@@ -20,7 +20,11 @@
         {{#each sohbetUser}}
         <li>
             <a href="/sohbetler/{{destinationUser._id}}" class="item">
-                <img src="assets/img/sample/avatar/avatar2.jpg" alt="image" class="image">
+                {{#if destinationUser.profilImage}}
+                <img src="/media/profil/{{destinationUser._id}}" alt="image" class="image">
+                {{else}}
+                <img src="/media/profil/default.jpg" alt="image" class="image">
+                {{/if}}
                 <div class="in">
                     <div>
                         <header>
