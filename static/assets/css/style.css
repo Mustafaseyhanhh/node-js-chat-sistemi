@@ -7735,7 +7735,8 @@ a {
       display: none; }
 
 #appCapsule {
-  padding: 56px 0; }
+  padding: 56px 0;
+  padding-bottom: 100px; }
   #appCapsule.extra-header-active {
     padding-top: 106px; }
 

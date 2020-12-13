@@ -1,26 +1,25 @@
 <div id="appCapsule">
+    {{#each paketler}}
     <div class="section mt-2">
         <div class="card">
-
             <div class="card-body" style="padding-bottom:0px;">
-                <h5 class="card-title text-center">Sms Paketi 1</h5>
+                <h5 class="card-title text-center">{{paketAdi}}</h5>
                 <div class="item">
-                <div class="bill-box">
-                    <div class="img-wrapper">
-                        <img src="assets/img/sample/brand/2.jpg" alt="img" class="image-block imaged w100">
+                    <div class="bill-box" style="box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0);">
+                        <div class="img-wrapper">
+                            <img src="/media/paketler/{{_id}}" alt="img" class="image-block imaged w100">
+                        </div>
+                        <div class="m-3 mt-2">
+                            {{#each icerik}}
+                            <p style="color: #505050;">{{this}}</p>
+                            {{/each}}
+                        </div>
+                        <a href="{{link}}"><button type="button" class="btn btn-primary btn-lg" style="width: 35%;">{{fiyat}} TL</button></a>
+                        <a href="{{link}}"><button type="button" class="btn btn-primary btn-lg" style="width: 60%;">Hemen Al</button></a>
                     </div>
-                    <div class="m-3 mt-2">
-                    <p style="color: #505050;">1000 SMS</p>
-                    <p style="color: #505050;">20 Random Eşleşme</p>
-                    <p style="color: #505050;">5 Platin Eşleşme</p>
-                    <p style="color: #505050;">2 Premium Eşleşme</p>
-                    <p style="color: #505050;">Profil üyelik logosu</p>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-lg" style="width: 35%;">9 TL</button>
-                    <button type="button" class="btn btn-primary btn-lg" style="width: 60%;">Hemen Al</button>
                 </div>
-            </div>
             </div>
         </div>
     </div>
+    {{/each}}
 </div>
