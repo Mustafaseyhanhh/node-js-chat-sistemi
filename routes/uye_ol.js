@@ -12,6 +12,7 @@ router.get('/uye-ol',function(req,res){
     }
 })
 
+
 router.post('/uye-ol-db',function(req,res){
     if (req.body.username.length>=6){
         User.create({username:req.body.username,password:req.body.password},(error,user)=>{
@@ -36,7 +37,6 @@ router.post('/uye-ol-db',function(req,res){
     }
     
 })
-
 
 router.get('/tanitim',function(req,res){
     res.render('tema/tanitim', {layout: 'empty'})
